@@ -1,4 +1,5 @@
 import React from 'react';
+import Jumbotron from './Jumbotron';
 import Question from './Question';
 import Button from './Button';
 import './App.css';
@@ -79,14 +80,26 @@ class App extends React.Component {
   render() {
   	var options = this.getOptions(this.state.currentElement);
     
-  	return <div class="app">
-      <Question text={this.state.triviaRepository[this.state.currentElement].question} />
-      <Button buttonClick={this.buttonClick} 
-        option={this.state.triviaRepository[options[0]].answer} />
-      <Button buttonClick={this.buttonClick}
-        option={this.state.triviaRepository[options[1]].answer} />
-      <Button buttonClick={this.buttonClick}
-        option={this.state.triviaRepository[options[2]].answer} />
+    return <div class="app">
+        <Jumbotron 
+          title={'HTTP Status Code Guru'}
+          tagline={'This is a modified jumbotron that occupies the entire horizontal space of its parent.'}
+        />
+        <Question 
+          text={this.state.triviaRepository[this.state.currentElement].question} 
+        />
+        <Button 
+          buttonClick={this.buttonClick} 
+          option={this.state.triviaRepository[options[0]].answer} 
+        />
+        <Button 
+          buttonClick={this.buttonClick}
+          option={this.state.triviaRepository[options[1]].answer} 
+        />
+        <Button 
+          buttonClick={this.buttonClick}
+          option={this.state.triviaRepository[options[2]].answer} 
+        />
       </div>
   };
 };
