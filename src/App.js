@@ -1,9 +1,10 @@
 import React from 'react';
-import Jumbotron from './Jumbotron';
-import Question from './Question';
-import Button from './Button';
-import './App.css';
-import triviaRepository from './trivia.json';
+import { 
+  Jumbotron, 
+  Question,
+  Button
+} from './components/index.js'
+import triviaRepository from './assets/trivia.json';
 
 class App extends React.Component {
 	constructor() {

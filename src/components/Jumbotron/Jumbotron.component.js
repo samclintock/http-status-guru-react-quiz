@@ -1,4 +1,5 @@
 import React from 'react';
+import './Jumbotron.css'
 
 class Jumbotron extends React.Component {
 	render() {
@@ -11,7 +12,7 @@ class Jumbotron extends React.Component {
           </div>
           <div class="col-md-6">
             <img 
-              src={process.env.PUBLIC_URL + '/jumbotron.png'}
+              src={process.env.PUBLIC_URL + '/media/jumbotron.png'}
               class="img-fluid center-block"
               alt={this.props.title}
               title={this.props.title}
