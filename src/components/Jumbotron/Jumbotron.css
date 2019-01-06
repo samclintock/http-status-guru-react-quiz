@@ -1,5 +1,83 @@
-div.jumbotron {
+.jumbotron {
     background-color:#1E1E1E;
     color: white;
-    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+}
+
+h1 {
+    color: #9CDCFE;
+    display: inline;
+}
+
+.tab-content {
+    margin: 0.5em 0 0.5em 3em;
+}
+
+.lead {
+    color: #608B4E;
+    margin-bottom: 0;
+}
+
+.curly-bracket {
+    font-size: 40px;
+}
+
+.jumbotron img {
+    display: block;
+    margin: 0 auto;
+}
+
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 40px;
+    color: white;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-moz-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-ms-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-o-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
 }

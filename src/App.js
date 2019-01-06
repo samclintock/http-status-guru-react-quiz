@@ -82,25 +82,28 @@ class App extends React.Component {
   	var options = this.getOptions(this.state.currentElement);
     
     return <div class="app">
-        <Jumbotron 
-          title={'HTTP Status Code Guru'}
-          tagline={'This is a modified jumbotron that occupies the entire horizontal space of its parent.'}
-        />
-        <Question 
-          text={this.state.triviaRepository[this.state.currentElement].question} 
-        />
-        <Button 
-          buttonClick={this.buttonClick} 
-          option={this.state.triviaRepository[options[0]].answer} 
-        />
-        <Button 
-          buttonClick={this.buttonClick}
-          option={this.state.triviaRepository[options[1]].answer} 
-        />
-        <Button 
-          buttonClick={this.buttonClick}
-          option={this.state.triviaRepository[options[2]].answer} 
-        />
+        <Jumbotron />
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <Question 
+                text={this.state.triviaRepository[this.state.currentElement].question} 
+              />
+              <Button 
+                buttonClick={this.buttonClick} 
+                option={this.state.triviaRepository[options[0]].answer} 
+              />
+              <Button 
+                buttonClick={this.buttonClick}
+                option={this.state.triviaRepository[options[1]].answer} 
+              />
+              <Button 
+                buttonClick={this.buttonClick}
+                option={this.state.triviaRepository[options[2]].answer} 
+              />
+            </div>
+          </div>
+        </div>
       </div>
   };
 };

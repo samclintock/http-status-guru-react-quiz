@@ -7,15 +7,24 @@ class Jumbotron extends React.Component {
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h1 class="display-3">{this.props.title}</h1>
-            <p class="lead">{this.props.tagline}</p>
+            <h1>HttpStatusCode.Guru</h1> <span class="curly-bracket">&#123;</span>
+            <div class="tab-content">
+              <p class="lead">&#47;* HTTP status codes are standard response codes 
+              given by web site servers on the internet.<br /><br />
+              How many HTTP status codes do you know?<br />
+              Take our quiz to find out. *&#47;</p>
+            </div>
+            <span class="curly-bracket">&#125;</span>
+            <span class="blinking-cursor">|</span>
           </div>
           <div class="col-md-6">
             <img 
-              src={process.env.PUBLIC_URL + '/media/jumbotron.png'}
-              class="img-fluid center-block"
-              alt={this.props.title}
-              title={this.props.title}
+              src={process.env.PUBLIC_URL + '/media/jumbotron.svg'}
+              class="img-fluid"
+              alt="HTTP Status Code Guru"
+              title="Http Status Code Guru"
+              width="75%"
+              height="75%"
             />
           </div>
       </div>
