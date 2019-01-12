@@ -4,14 +4,14 @@ import {
   Question,
   Button
 } from './components/index.js'
-import triviaRepository from './assets/trivia.json';
+import statusCodeRepository from './assets/status-code-repository.json';
 
 class App extends React.Component {
 	constructor() {
   	super();
     
     this.state = {
-    	triviaRepository: this.shuffleArray(triviaRepository),
+    	statusCodeRepository: this.shuffleArray(statusCodeRepository),
       currentElement: 0
     }
     
@@ -24,13 +24,13 @@ class App extends React.Component {
   	// Safely get the previous element. If the current element is the
     // first element in the repository, get the last element instead
     var previousElement = (currentElement === 0) ? 
-    	(this.state.triviaRepository.length - 1) : 
+    	(this.state.statusCodeRepository.length - 1) : 
     	(currentElement - 1);
     
     // Safely get the next element. If the current element is the last
     // element in the repository, get the first element instead
     var nextElement = (currentElement === 
-    	(this.state.triviaRepository.length - 1)) ? 0 : 
+    	(this.state.statusCodeRepository.length - 1)) ? 0 : 
     	currentElement + 1;
     
   	// Return a randomized array of options  
@@ -59,14 +59,15 @@ class App extends React.Component {
   
   // Functionality for the button click
   buttonClick(option) {
-  	if (option === this.state.triviaRepository[this.state.currentElement].answer)
+  	if (option === this.state.statusCodeRepository[
+      this.state.currentElement].code)
     {
-    	alert(option + ' is correct!');
+      alert(option + ' is correct!');
       
       // Either go to the next question, or the first question if
       // we have reached the end (this will mean endless questions)
       var nextElement = (this.state.currentElement === 
-      	(this.state.triviaRepository.length - 1)) ? 
+      	(this.state.statusCodeRepository.length - 1)) ? 
       	0 : (this.state.currentElement + 1);
       
       // Update the state so React will update the DOM
@@ -87,19 +88,22 @@ class App extends React.Component {
           <div class="row">
             <div class="col-12 text-center">
               <Question 
-                text={this.state.triviaRepository[this.state.currentElement].question} 
+                text={this.state.statusCodeRepository[
+                  this.state.currentElement].name + ': ' + 
+                  this.state.statusCodeRepository[
+                    this.state.currentElement].description} 
               />
               <Button 
                 buttonClick={this.buttonClick} 
-                option={this.state.triviaRepository[options[0]].answer} 
+                option={this.state.statusCodeRepository[options[0]].code} 
               />
               <Button 
                 buttonClick={this.buttonClick}
-                option={this.state.triviaRepository[options[1]].answer} 
+                option={this.state.statusCodeRepository[options[1]].code} 
               />
               <Button 
                 buttonClick={this.buttonClick}
-                option={this.state.triviaRepository[options[2]].answer} 
+                option={this.state.statusCodeRepository[options[2]].code} 
               />
             </div>
           </div>

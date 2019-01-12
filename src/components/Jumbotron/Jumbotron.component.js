@@ -7,7 +7,7 @@ class Jumbotron extends React.Component {
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h1>HttpStatusCode.Guru</h1> <span class="curly-bracket">&#123;</span>
+            <h1>HttpStatusCodeGuru</h1> <span class="curly-bracket">&#123;</span>
             <div class="tab-content">
               <p class="lead">&#47;* HTTP status codes are standard response codes 
               given by web site servers on the internet.<br /><br />
