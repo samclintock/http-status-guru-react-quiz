@@ -6,13 +6,19 @@ import {
 } from './components/index.js'
 import statusCodeRepository from './assets/status-code-repository.json';
 
+const TOTAL_QUESTIONS = 20;
+
 class App extends React.Component {
 	constructor() {
-  	super();
+    super();
+    
+    // Limit the number of questions in the quiz
+    var statusCodes = statusCodeRepository.slice(0, TOTAL_QUESTIONS - 1);
     
     this.state = {
-    	statusCodeRepository: this.shuffleArray(statusCodeRepository),
-      currentElement: 0
+    	statusCodeRepository: this.shuffleArray(statusCodes),
+      currentElement: 0,
+      currentScore: 0
     }
     
     this.buttonClick = this.buttonClick.bind(this);
@@ -62,7 +68,7 @@ class App extends React.Component {
   	if (option === this.state.statusCodeRepository[
       this.state.currentElement].code)
     {
-      alert(option + ' is correct!');
+      //alert(option + ' is correct!');
       
       // Either go to the next question, or the first question if
       // we have reached the end (this will mean endless questions)
@@ -72,11 +78,14 @@ class App extends React.Component {
       
       // Update the state so React will update the DOM
       this.setState({
-    		currentElement: nextElement
+        currentElement: nextElement,
+        currentScore: this.state.currentScore + 1
     	});
     }
     else
-    	alert(option + ' is incorrect. Please try again.');
+    {
+      //alert(option + ' is incorrect. Please try again.');
+    }
   };
   
   render() {
