@@ -9,7 +9,8 @@ import {
 } from './components/index.js'
 import statusCodeRepository from './assets/status-code-repository.json';
 
-const TOTAL_QUESTIONS = 20;
+// Set the total amount of questions in the quiz
+const TOTAL_QUESTIONS = 10;
 
 class App extends React.Component {
 	constructor() {
@@ -72,24 +73,28 @@ class App extends React.Component {
   	if (option === this.state.statusCodeRepository[
       this.state.currentElement].code)
     {
-      alert(option + ' is correct!');
-      
-      // Either go to the next question, or the first question if
-      // we have reached the end (this will mean endless questions)
-      var nextElement = (this.state.currentElement === 
-      	(this.state.statusCodeRepository.length - 1)) ? 
-      	0 : (this.state.currentElement + 1);
-      
       // Update the state so React will update the DOM
       this.setState({
-        currentElement: nextElement,
         currentScore: this.state.currentScore + 1
-    	});
+      });
+
+      alert(option + ' is correct!');
     }
     else
     {
       alert(option + ' is incorrect.');
     }
+
+    // Either go to the next question, or the first question if
+    // we have reached the end (this will mean endless questions)
+    var nextElement = (this.state.currentElement === 
+      (this.state.statusCodeRepository.length - 1)) ? 
+      0 : (this.state.currentElement + 1);
+    
+    // Update the state so React will update the DOM
+    this.setState({
+      currentElement: nextElement
+    });
   };
   
   render() {

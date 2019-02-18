@@ -1,10 +1,14 @@
-.btn-primary {
+.btn-primary,
+.btn-primary:hover {
     background-color: white;
     border-color: #021D54;
     color: #021D54;
 }
 
-.btn-primary:hover {
-    background-color: #021D54;
-    color: white;
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus {
+    background-color: rgb(0, 14, 43) !important;
+    border-color: #021D54 !important;
+    color: white !important;
 }
