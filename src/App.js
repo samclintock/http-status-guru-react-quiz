@@ -1,8 +1,11 @@
 import React from 'react';
 import { 
   Jumbotron, 
+  Window,
+  Scoreboard,
   Question,
-  Button
+  Button,
+  Footer
 } from './components/index.js'
 import statusCodeRepository from './assets/status-code-repository.json';
 
@@ -65,10 +68,11 @@ class App extends React.Component {
   
   // Functionality for the button click
   buttonClick(option) {
+    // If the answer is correct...
   	if (option === this.state.statusCodeRepository[
       this.state.currentElement].code)
     {
-      //alert(option + ' is correct!');
+      alert(option + ' is correct!');
       
       // Either go to the next question, or the first question if
       // we have reached the end (this will mean endless questions)
@@ -84,7 +88,7 @@ class App extends React.Component {
     }
     else
     {
-      //alert(option + ' is incorrect. Please try again.');
+      alert(option + ' is incorrect.');
     }
   };
   
@@ -93,30 +97,39 @@ class App extends React.Component {
     
     return <div class="app">
         <Jumbotron />
-        <div class="container">
-          <div class="row">
-            <div class="col-12 text-center">
-              <Question 
-                text={this.state.statusCodeRepository[
-                  this.state.currentElement].name + ': ' + 
-                  this.state.statusCodeRepository[
-                    this.state.currentElement].description} 
-              />
-              <Button 
-                buttonClick={this.buttonClick} 
-                option={this.state.statusCodeRepository[options[0]].code} 
-              />
-              <Button 
-                buttonClick={this.buttonClick}
-                option={this.state.statusCodeRepository[options[1]].code} 
-              />
-              <Button 
-                buttonClick={this.buttonClick}
-                option={this.state.statusCodeRepository[options[2]].code} 
-              />
+        <Window />
+        <div class="quiz">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <Scoreboard 
+                  currentScore={this.state.currentScore}
+                  totalQuestions={TOTAL_QUESTIONS}
+                />
+                <Question 
+                  currentElement={this.state.currentElement}
+                  name={this.state.statusCodeRepository[this.state.currentElement].name}
+                  description={this.state.statusCodeRepository[this.state.currentElement].description}
+                />
+                <div class="btn-group">
+                  <Button 
+                    buttonClick={this.buttonClick} 
+                    option={this.state.statusCodeRepository[options[0]].code} 
+                  />
+                  <Button 
+                    buttonClick={this.buttonClick}
+                    option={this.state.statusCodeRepository[options[1]].code} 
+                  />
+                  <Button 
+                    buttonClick={this.buttonClick}
+                    option={this.state.statusCodeRepository[options[2]].code} 
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
   };
 };

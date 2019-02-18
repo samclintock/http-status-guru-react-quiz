@@ -1,4 +1,12 @@
 body {
-    background-color: #666666;
+    background-color:#1E1E1E;
+    color: white;
     font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+}
+
+.quiz {
+    background-color: #021D54;
+    border-bottom: 3px solid #80C6FE;
+    padding-bottom: 2em;
+    padding-top: 2em;
 }

@@ -27,7 +27,7 @@ class Jumbotron extends React.Component {
               height="75%"
             />
           </div>
-      </div>
+        </div>
       </div>
     </div>
   };
