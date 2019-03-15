@@ -45,7 +45,7 @@ class App extends React.Component {
     
   	// Return a randomized array of options  
   	return this.shuffleArray(
-    	[ previousElement, currentElement, nextElement]);
+    	[previousElement, currentElement, nextElement]);
   };
   
   // Shuffle the order of an array
@@ -69,29 +69,42 @@ class App extends React.Component {
   
   // Functionality for the button click
   buttonClick(option) {
-    // If the answer is correct...
-  	if (option === this.state.statusCodeRepository[
-      this.state.currentElement].code)
+    var isCorrect = (option === this.state.statusCodeRepository[
+      this.state.currentElement].code);
+    
+  	if (isCorrect)
     {
       // Update the state so React will update the DOM
       this.setState({
         currentScore: this.state.currentScore + 1
       });
-
-      alert(option + ' is correct!');
-    }
-    else
-    {
-      alert(option + ' is incorrect.');
     }
 
-    // Either go to the next question, or the first question if
-    // we have reached the end (this will mean endless questions)
-    var nextElement = (this.state.currentElement === 
-      (this.state.statusCodeRepository.length - 1)) ? 
-      0 : (this.state.currentElement + 1);
-    
-    // Update the state so React will update the DOM
+    var nextElement = 0;
+
+    // Check if we're at the end of the quiz
+    if (this.state.currentElement !== 
+      (this.state.statusCodeRepository.length - 1)) {
+        // If we're not at the end of the quiz, load the next question
+        nextElement = (this.state.currentElement + 1);
+
+        if(isCorrect)
+          alert(option + ' is correct!');
+        else
+          alert(option + ' is incorrect.');
+    }
+    else {
+      if (this.state.currentScore === TOTAL_QUESTIONS)
+        alert('Congratulations! You are a HTTP Status Code Guru!');
+      else
+        alert('You are not a HTTP Status Code Guru this time! Please try again...');
+
+      // Reset the score (so the user can try again)
+      this.setState({
+        currentScore: 0
+      });
+    }
+
     this.setState({
       currentElement: nextElement
     });

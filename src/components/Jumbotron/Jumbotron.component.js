@@ -15,7 +15,6 @@ class Jumbotron extends React.Component {
               Take our quiz to find out. *&#47;</p>
             </div>
             <span class="curly-bracket">&#125;</span>
-            <span class="blinking-cursor">|</span>
           </div>
           <div class="col-md-6">
             <img 
