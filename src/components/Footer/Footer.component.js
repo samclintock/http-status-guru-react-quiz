@@ -5,7 +5,7 @@ class Footer extends React.Component {
     render() {
         return <footer class="page-footer font-small">
             <div class="text-center py-3">
-                Built using <a href="https://reactjs.org/">React</a> by <a href="https://kiltandcode.com/">Kilt &amp; Code</a>
+                Built using <a href="https://reactjs.org/">React</a> by <a href="https://github.com/samclintock/">Steven McLintock</a>
             </div>
         </footer>
     }
